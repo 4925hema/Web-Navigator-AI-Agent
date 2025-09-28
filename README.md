@@ -1,22 +1,93 @@
-Understanding & Proposed Solution:
+# Web Navigator Agent
 
-We built a locally running AI agent that interprets natural language instructions and autonomously interacts with the web. The agent combines a local LLM (Ollama/GPT4All) for comprehension and planning with Playwright (headless Chrome) for browser automation. Users can issue commands like “search for laptops under 50k and list top 5,” and the system performs searches, clicks, fills forms, scrapes data, and returns structured outputs (JSON/CSV) entirely offline. Python + LangChain orchestrates multi-step reasoning, retries, and task chaining. Optional enhancements include task memory, error handling, voice input, GUI interaction, and exportable results.
+A high-performance LangChain-powered web browsing agent that can search and navigate websites.
 
-Prototype Flow & Team Contributions:
+## Features
 
-Frontend (React): Input box for commands, displays structured results; communicates with backend via fetch API.
+- ⚡ **Optimized Performance**: Browser instance reuse, lighter AI model, and efficient resource management
+- 🌐 **Multi-Platform Support**: Amazon, Flipkart, and Google search integration
+- 🧠 **Smart AI**: Uses Ollama with LangChain for intelligent task processing
+- 🎯 **Fast Response**: Headless browsing and optimized timeouts for quick results
+- 📊 **Performance Monitoring**: Built-in performance testing and resource cleanup tools
 
-Server (Python Flask/FastAPI + LangChain): Receives frontend commands, sends to LLM for instruction parsing, generates browser actions, orchestrates execution flow.
+## Quick Start
 
-Browser Execution (Playwright): Automates searches, clicks, form filling, data extraction; returns structured JSON results.
+1. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
 
-Backend-Frontend Integration: Ensures API responses are displayed neatly in the UI with error handling.
+2. **Install Playwright browsers:**
+```bash
+playwright install
+```
 
-Data Persistence (MongoDB): Stores instructions, execution results, and metadata for task memory, enabling later retrieval and export to CSV/JSON.
+3. **Start Ollama and pull the optimized model:**
+```bash
+ollama pull llama3.2:1b  # Much faster than gemma
+```
 
-Uniqueness & Impact:
-Fully local execution ensures privacy and independence from cloud services. The agent transforms natural language into actionable web tasks, reducing manual effort and enabling structured outputs for analysis. Its multi-step reasoning, task memory, and GUI interface make it accessible to both technical and non-technical users.
+4. **Run the agent:**
+```bash
+python run_agent.py
+```
 
-Impact: Accelerates research, competitive analysis, and repetitive web tasks, empowering developers, researchers, and businesses to interact with web data efficiently while maintaining full control over execution and data security.
+## Performance Optimizations
 
-Tech Stack: Ollama / GPT4All, LangChain, Python, Playwright, Flask, React, MongoDB.
+### 🚀 Speed Improvements
+- **Browser Reuse**: Single browser instance instead of creating new ones
+- **Lighter AI Model**: `llama3.2:1b` instead of `gemma` for faster processing
+- **Headless Mode**: No GUI rendering for better performance
+- **Optimized Timeouts**: Reduced wait times for faster responses
+- **Memory Management**: Proper cleanup and resource management
+
+### 📊 Performance Monitoring
+```bash
+# Test performance with sample queries
+python performance_test.py
+
+# Clean up Ollama processes if needed
+python cleanup_ollama.py
+```
+
+## Usage
+
+Enter your search queries when prompted. The agent will automatically:
+- Detect if you want to search Amazon, Flipkart, or use Google
+- Navigate to the appropriate website
+- Perform the search efficiently
+- Return the results URL with timing information
+
+**Example queries:**
+- "search for laptops on amazon"
+- "find mobile phones on flipkart"
+- "search for python programming books"
+
+Type 'exit' to quit.
+
+## Troubleshooting
+
+### High CPU Usage
+If you notice high CPU usage from Ollama:
+```bash
+python cleanup_ollama.py
+```
+
+### Slow Performance
+1. Ensure you're using the lighter model: `llama3.2:1b`
+2. Check available system memory
+3. Close other browser instances
+4. Run the performance test to identify bottlenecks
+
+### Memory Issues
+The agent now includes automatic cleanup, but you can manually restart if needed.
+
+## Technical Details
+
+- **AI Model**: `llama3.2:1b` (optimized for speed)
+- **Browser**: Chromium with performance flags
+- **Timeout**: 15 seconds (reduced from 30)
+- **Memory**: Optimized with proper cleanup
+- **Concurrency**: Single-threaded with efficient resource sharing
+
+
