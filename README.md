@@ -72,7 +72,7 @@ User Input (Natural Language)
 - **Environment Variables**: Configuration storage (.env files)
 - **Local File System**: Task logs and temporary data storage
 
-### ML/AI Frameworks
+### AI Frameworks
 - **Ollama**: Local AI model hosting platform
 - **Gemma Model**: Google's open-source language model
 - **Browser-Use Agent**: AI-powered browser automation framework
@@ -327,6 +327,7 @@ The agent now includes automatic cleanup, but you can manually restart if needed
 
 
 Uploading 28.09.2025_19.00.13_REC WEB.......mp4…
+
 
 
 
