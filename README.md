@@ -89,5 +89,11 @@ The agent now includes automatic cleanup, but you can manually restart if needed
 - **Timeout**: 15 seconds (reduced from 30)
 - **Memory**: Optimized with proper cleanup
 - **Concurrency**: Single-threaded with efficient resource sharing
+![Uploading image.png…]()
+
+
+Uploading 28.09.2025_19.00.13_REC WEB.......mp4…
+
+
 
 
