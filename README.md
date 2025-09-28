@@ -1,4 +1,5 @@
 Understanding & Proposed Solution:
+
 We built a locally running AI agent that interprets natural language instructions and autonomously interacts with the web. The agent combines a local LLM (Ollama/GPT4All) for comprehension and planning with Playwright (headless Chrome) for browser automation. Users can issue commands like “search for laptops under 50k and list top 5,” and the system performs searches, clicks, fills forms, scrapes data, and returns structured outputs (JSON/CSV) entirely offline. Python + LangChain orchestrates multi-step reasoning, retries, and task chaining. Optional enhancements include task memory, error handling, voice input, GUI interaction, and exportable results.
 
 Prototype Flow & Team Contributions:
